@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body style="background-color: #e8e9eb;">
+<center style="width: 100%; background-color: #e8e9eb;">
+    <main class="page blog-post">
+        <section class="clean-block clean-post dark" style="padding-top: 20px;padding-bottom: 20px;">
+            <div class="container text-center" align="center">
+                <h2 style="color: #007bff">OJOS</h2>
+                <div class="card"
+                     style="border-radius: 3px; width: 600px;margin: 0 auto;border-top: 5px solid #007bff; background-color: white; padding-bottom: 50px">
+                    <div class="card-body">
+                        <h1>Your daily report</h1>
+                        <h2>{{ date }}</h2>
+                        <p class="card-text"><em>{{ quote }}</em></p>
+                        <div class="shadow-none block-content">
+                            <h2 style="font-weight: normal;padding-bottom: 20px;">Summary of events</h2>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>What happened</th>
+                                        <th>When</th>
+                                        <th>Video</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for event in user_events.itertuples() %}
+                                    <tr>
+                                        <td>{{ event.event_type }}</td>
+                                        <td>{{ event.timestamp.strftime('%H:%M') }}</td>
+                                        <td><a href="{{ event.video_link }}">link</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="text-muted" style="padding-top: 30px;">Need help? <a href="mailto:help@myojos.tech">contact us</a><br><br>©
+                    OJOS&nbsp;2020<br>548 Market St #68514<br>San Francisco, CA 94104<br></p>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
